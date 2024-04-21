@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+with open('D:\\29.txt', 'r') as file:
+    data = file.readlines()
+значення_х = []
+значення_у = []
+
+for line in data:
+    x, y = line.strip().split('\t')
+    значення_х.append(float(x.replace(',', '.'))) 
+    значення_у.append(float(y.replace(',', '.'))) 
+    
+у_середнє = sum(значення_у) / len(значення_у)
+print (y_середнє)
+
+у_менші_за_у_середнє = []
+відповідні_х = []
+
+for i in range(len(значення_х)):
+    if значення_у[i] <= у_середнє:
+        у_менші_за_у_середнє.append(значення_у[i])
+        відповідні_х.append(значення_х[i])
+
+plt.plot(відповідні_х, у_менші_за_у_середнє,)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Графік залежності')
+plt.show()
+2.8109637800985925
