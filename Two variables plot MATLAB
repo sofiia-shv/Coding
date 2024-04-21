@@ -1,0 +1,11 @@
+file = fopen('D:\new 29.txt', 'r');
+data = fscanf(file, '%f %f', [2 Inf]);
+fclose(file);
+data = data';
+avg_y = mean(data(:, 2));
+x = data(data(:, 2) <= avg_y, 1);
+y = data(data(:, 2) <= avg_y, 2);
+plot(x, y);
+xlabel('x');
+ylabel('y');
+title('Графік');
